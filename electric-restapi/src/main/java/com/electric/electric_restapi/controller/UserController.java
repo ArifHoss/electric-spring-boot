@@ -22,7 +22,6 @@ public class UserController {
         return userService.findAll();
     }
 
-    // UserController.java
 
     @GetMapping("/email/{email}")
     public ResponseEntity<EUser> getUserByEmail(@PathVariable String email) {
@@ -46,7 +45,7 @@ public class UserController {
             return ResponseEntity.status(401).body("{\"error\":\"Fel e-post eller lösenord.\"}");
         }
 
-        return ResponseEntity.ok(user); // return full user object
+        return ResponseEntity.ok(user);
     }
 
 }
