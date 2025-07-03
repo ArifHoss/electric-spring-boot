@@ -130,7 +130,8 @@ const OutletProduct = () => {
                         onClick={() => setSelectedCategory(item.category)} // optional: set filter
                     >
                         <div className="relative w-16 h-16 mb-2">
-                            <div className="absolute -left-4 -top-1.5 w-10 h-10 bg-black text-white text-[8px] font-bold rounded-full flex items-center justify-center shadow">
+                            <div
+                                className="absolute -left-4 -top-1.5 w-10 h-10 bg-black text-white text-[8px] font-bold rounded-full flex items-center justify-center shadow">
                                 OUTLET
                             </div>
                             <img
@@ -180,9 +181,12 @@ const OutletProduct = () => {
 
             <section className="p-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                    {filteredProducts.map((product, idx) => (
-                        <OutletProductCard key={idx} {...product} />
-                    ))}
+                    {/*{filteredProducts.map((product, idx) => (*/}
+                    {/*    <OutletProductCard key={idx} {...product} />*/}
+                    {/*))}*/}
+                    {filteredProducts.map((product) => <OutletProductCard key={product.id} title={product.title} description={product.description ?? "Description not available!"}
+                                                                          price={product.price} originalPrice={product.originalPrice} image={'./image.png'} reviews={product.reviews ?? 0}
+                                                                          availability={product.availability ?? "Unknown"} to={`/product/${product.id}`}/>)}
                 </div>
                 {filteredProducts.length === 0 && (
                     <p className="text-center text-gray-500 py-10">
@@ -192,7 +196,7 @@ const OutletProduct = () => {
             </section>
 
             <footer>
-                <Footer />
+                <Footer/>
             </footer>
         </section>
     );

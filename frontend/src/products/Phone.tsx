@@ -65,7 +65,7 @@ const Phone = () => {
                                 image={'/image.png'}
                                 title={product.title}
                                 reviews={product.reviews ?? 0}
-                                description={product.description}
+                                description={product.description ?? "Description not available!"}
                                 availability={
                                     product.availability ??
                                     'Tillgänglighet okänd'
